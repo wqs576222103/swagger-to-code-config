@@ -39,13 +39,13 @@ const pageConfig = {
   template: {
     route: {
       pages: {
-        // 首页
+        // 首页 TODO:修改
         index: {
           path: moduleName,
           name: upperFirstChar(moduleName),
           filePath: "index.vue",
         },
-        // 详情页
+        // 详情页 TODO:修改
         detail: {
           path: `${moduleName}Detail`,
           name: `${upperFirstChar(moduleName)}Detail`,
@@ -54,23 +54,23 @@ const pageConfig = {
       },
       // route模块的模板位置, 相对路径./swagger-to-code
       modulePath: "./template/route.ts",
-      // 默认route模块输出文件目录，相对路径为命令执行路径cwd
+      // 默认route模块输出文件目录，相对路径为命令执行路径cwd TODO:修改
       outputPath: "./src/router/modules",
-      // 页面路由入口文件位置, 相对路径为命令执行路径cwd
+      // 页面路由入口文件位置, 相对路径为命令执行路径cwd TODO:修改
       indexPath: "./src/router/index.ts",
       // 页面路由入口，在找不到页面路由入口文件时，默认从模板中去找，相对路径./swagger-to-code
       indexDefaultPath: "./template/routeIndex.ts",
-      // 约定引入、和使用位置需要添加注释 // swagger-to-code import-route
-      indexImportRoute: `import ${moduleName} from './modules/${moduleName}';`,
-      // 约定引入、和使用位置需要添加注释 // swagger-to-code use-route
+      // 约定引入、和使用位置需要添加注释 // swagger-to-code import-route TODO:修改
+      indexImportRoute: `import ${moduleName} from './modules/${moduleName}';`, 
+      // 约定引入、和使用位置需要添加注释 // swagger-to-code use-route TODO:修改
       indexUseRoute: `...${moduleName},`,
       // 页面路由默认输出文件目录，修改为自己的路由文件存放路径
     },
     page: {
       // 页面模板文件路径, 相对路径./swagger-to-code
       rootPath: "./template/page", // 还可以定义如 ./template/chartPage
-      // 默认输出文件目录，相对路径为命令执行路径cwd
-      outputPath: "./src/views",
+      // 默认输出文件目录，相对路径为命令执行路径cwd TODO:修改
+      outputPath: "./src/views", 
     },
   },
   // 对数据进行格式转换，可以在这里将数据转换为自己想要的
