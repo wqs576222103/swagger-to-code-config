@@ -1,19 +1,19 @@
-// 判断是否是新增接口，TODO:按需修改
+// 判断是否是新增接口，TODO:修改
 const isAddRequest = (config) => /新增|新建|保存/g.test(config.summary);
-// 判断是否是删除接口，TODO:按需修改
+// 判断是否是删除接口，TODO:修改
 const isDeleteRequest = (config) => /删除/g.test(config.summary);
-// 判断是否是列表查询接口，TODO:按需修改
+// 判断是否是列表查询接口，TODO:修改
 const isListRequest = (config) => /列表查询|分页/g.test(config.summary);
-// 判断是否是详情接口，TODO:按需修改
+// 判断是否是详情接口，TODO:修改
 const isDetailRequest = (config) =>
   /详情/g.test(config.summary) || config.url.includes("/getDetail");
-// 判断是否是编辑接口，TODO:按需修改
+// 判断是否是编辑接口，TODO:修改
 const isEditRequest = (config) => /更新|编辑/g.test(config.summary);
-// 判断是否是导入接口，TODO:按需修改
+// 判断是否是导入接口，TODO:修改
 const isImportRequest = (config) => /导入/g.test(config.summary);
-// 判断是否是导入模板下载接口，TODO:按需修改
+// 判断是否是导入模板下载接口，TODO:修改
 const isImportTemplateRequest = (config) => /模板下载/g.test(config.summary);
-// 判断是否是下载接口，TODO:按需修改
+// 判断是否是下载接口，TODO:修改
 const isExportRequest = (config) => /导出|下载/g.test(config.summary);
 const config = {
   // 用于请求及生成页面的默认公共模块名称 TODO:修改
