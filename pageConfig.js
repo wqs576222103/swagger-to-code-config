@@ -3,9 +3,9 @@ const commonConfig = require("./config");
 // @ts-ignore
 const { upperFirstChar, getCustomRequestName } = require("./utils");
 // @ts-ignore
-const { moduleName } = commonConfig;
+const { moduleName, lowerModuleName } = commonConfig;
 
-// 规范已经匹配的请求名称 
+// 规范已经匹配的请求名称
 // @ts-ignore
 const formatRequestName = (config) => {
   const { swaggerData } = config;
@@ -13,7 +13,7 @@ const formatRequestName = (config) => {
   Object.keys(swaggerData).forEach((k) => {
     const v = swaggerData[k];
     if (v.requestType && !typeMap[v.requestType]) {
-      v.requestName = getCustomRequestName(moduleName, v.requestType);
+      v.requestName = getCustomRequestName(lowerModuleName, v.requestType);
     }
   });
 };
@@ -41,13 +41,13 @@ const pageConfig = {
       pages: {
         // 首页 TODO:修改
         index: {
-          path: moduleName,
+          path: lowerModuleName,
           name: upperFirstChar(moduleName),
           filePath: "index.vue",
         },
         // 详情页 TODO:修改
         detail: {
-          path: `${moduleName}Detail`,
+          path: `${lowerModuleName}Detail`,
           name: `${upperFirstChar(moduleName)}Detail`,
           filePath: "detail.vue",
         },
@@ -61,16 +61,16 @@ const pageConfig = {
       // 页面路由入口，在找不到页面路由入口文件时，默认从模板中去找，相对路径./swagger-to-code
       indexDefaultPath: "./template/routeIndex.ts",
       // 约定引入、和使用位置需要添加注释 // swagger-to-code import-route TODO:修改
-      indexImportRoute: `import ${moduleName} from './modules/${moduleName}';`, 
+      indexImportRoute: `import ${lowerModuleName} from './modules/${lowerModuleName}';`,
       // 约定引入、和使用位置需要添加注释 // swagger-to-code use-route TODO:修改
-      indexUseRoute: `...${moduleName},`,
+      indexUseRoute: `...${lowerModuleName},`,
       // 页面路由默认输出文件目录，修改为自己的路由文件存放路径
     },
     page: {
       // 页面模板文件路径, 相对路径./swagger-to-code
       rootPath: "./template/page", // 还可以定义如 ./template/chartPage
       // 默认输出文件目录，相对路径为命令执行路径cwd TODO:修改
-      outputPath: "./src/views", 
+      outputPath: "./src/views",
     },
   },
   // 对数据进行格式转换，可以在这里将数据转换为自己想要的

@@ -1,5 +1,6 @@
+const { lowerFirstChar, upperFirstChar } = require('./utils.js')
 // 判断是否是新增接口，TODO:修改
-const isAddRequest = (config) => /新增|新建|保存/g.test(config.summary);
+const isAddRequest = (config) => /(新增|新建|保存)(?!导出|导入)/g.test(config.summary);
 // 判断是否是删除接口，TODO:修改
 const isDeleteRequest = (config) => /删除/g.test(config.summary);
 // 判断是否是列表查询接口，TODO:修改
@@ -9,15 +10,19 @@ const isDetailRequest = (config) =>
   /详情/g.test(config.summary) || config.url.includes("/getDetail");
 // 判断是否是编辑接口，TODO:修改
 const isEditRequest = (config) => /更新|编辑/g.test(config.summary);
-// 判断是否是导入接口，TODO:修改
-const isImportRequest = (config) => /导入/g.test(config.summary);
 // 判断是否是导入模板下载接口，TODO:修改
-const isImportTemplateRequest = (config) => /模板下载/g.test(config.summary);
+const isImportTemplateRequest = (config) => /模(板|版)?(下载|下載)/g.test(config.summary) || /(下载|下載|结果录入)?模(板|版)/g.test(config.summary);
+// 判断是否是导入接口，TODO:修改
+const isImportRequest = (config) => /导入|结果录入/g.test(config.summary);
 // 判断是否是下载接口，TODO:修改
-const isExportRequest = (config) => /导出|下载/g.test(config.summary);
+const isExportRequest = (config) => /(?<!模板)(导出|下载)(?!模板)/g.test(config.summary);
+// 用于请求及生成页面的默认公共模块名称 TODO:修改
+//"safetyDetector", 时间selectSafetyTrainModel，导入导出safetyHazardInspectionStandard SafetyOccupationHealthDetectPlan
+const moduleName = 'SafetyOccupationHealthDetectPoint' //"SafetyOccupationHealthDetectPoint", //"safetyHazardInspectionStandard"
 const config = {
-  // 用于请求及生成页面的默认公共模块名称 TODO:修改
-  moduleName: "xxxmoduleName",
+  moduleName,
+  lowerModuleName: lowerFirstChar(moduleName),
+  upperModuleName: upperFirstChar(moduleName),
   // 根据此配置，去处理swagger接口类型。并将处理的数据，返回到模板数据中
   // 比如如你配置了一个add，那么ejs模板数据swaggerData.add就会有值
   apiConfigs: {

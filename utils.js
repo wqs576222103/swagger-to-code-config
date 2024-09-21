@@ -1,5 +1,7 @@
 // 将第一个字母大写
 const upperFirstChar = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+// 将第一个字母小写
+const lowerFirstChar = (str) => str.charAt(0).toLowerCase() + str.slice(1);
 
 // 针对不同类型接口，自定义请求方法名
 const getCustomRequestName = (moduleName, requestType) => {
@@ -18,5 +20,6 @@ const getCustomRequestName = (moduleName, requestType) => {
 
 module.exports = {
   upperFirstChar,
+  lowerFirstChar,
   getCustomRequestName,
 };
