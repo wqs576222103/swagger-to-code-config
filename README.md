@@ -6,16 +6,18 @@
 
 ```sh
 |-- swagger-to-code-config # 模板配置根目录
-    |-- template # 相关ejs模板文件
+    |-- template/ # 相关ejs模板文件
         |-- page # 在这里添加你页面的模板文件
-            | -- index.html # 模板样例
+            |-- index.html # 模板样例
         |-- route.ts # 生成模块路由模板
         `-- request.js # 生成请求方法的模板
-    |-- config,js # 生成请求和页面的公共配置
-    |-- pageConfig.js # 生成页面的配置
-    |-- requestConfig.js # 生成请求的配置
-    |- swaggerConfig.js # 请求swagger的配置
-    `-- utils.js # 工具方法
+    |-- config/ # 配置
+        |-- commonConfig.js # 公共配置
+        |-- pageConfig.js # 生成页面的配置
+        |-- requestConfig.js # 生成请求的配置
+        `-- swaggerConfig.js # 请求swagger的配置
+    `-- utils/ # 工具方法
+        `-- index.js  # 工具函数入口文件
     
 ```
 

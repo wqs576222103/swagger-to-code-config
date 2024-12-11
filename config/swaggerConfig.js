@@ -1,5 +1,5 @@
 // @ts-ignore
-const { moduleName } = require("./config");
+const { moduleName } = require("./commonConfig.js");
 // swagger 配置
 const swaggerConfig = {
   url: 'http://xxx/xxx/api/v2/api-docs', //  TODO:修改

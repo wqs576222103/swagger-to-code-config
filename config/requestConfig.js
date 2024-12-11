@@ -1,7 +1,7 @@
 // @ts-ignore
-const commonConfig = require("./config");
+const commonConfig = require("./commonConfig.js");
 // @ts-ignore
-const { getCustomRequestName } = require("./utils");
+const { getCustomRequestName } = require("../utils/index.js");
 // @ts-ignore
 const { moduleName } = commonConfig;
 
